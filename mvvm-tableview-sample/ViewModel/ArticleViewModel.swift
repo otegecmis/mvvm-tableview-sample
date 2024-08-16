@@ -5,11 +5,11 @@ struct ArticleViewModel {
     private let article: Article
     
     var title: String {
-        return self.article.title
+        return self.article.title ?? "Title"
     }
     
     var description: String {
-        return self.article.description
+        return self.article.description ?? "Description"
     }
     
     // MARK: - Lifecycles
