@@ -5,6 +5,18 @@ class NewsCell: UITableViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        
+        return label
+    }()
+    
+    var authorLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = .darkGray
         
         return label
     }()
@@ -15,6 +27,7 @@ class NewsCell: UITableViewCell {
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .lightGray
         
         return label
     }()
@@ -23,9 +36,9 @@ class NewsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let stack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, authorLabel, descriptionLabel])
         stack.axis = .vertical
-        stack.spacing = 4
+        stack.spacing = 8
         stack.alignment = .leading
         stack.translatesAutoresizingMaskIntoConstraints = false
         

@@ -52,6 +52,7 @@ extension HomeController {
         let article = viewModel.articleAtIndex(indexPath.row)
         
         cell.titleLabel.text = article.title
+        cell.authorLabel.text = article.author
         cell.descriptionLabel.text = article.description
         
         return cell
