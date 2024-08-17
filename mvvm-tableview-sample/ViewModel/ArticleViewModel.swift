@@ -12,6 +12,10 @@ struct ArticleViewModel {
         return self.article.description ?? "Description"
     }
     
+    var author: String {
+        return self.article.author ?? "Author"
+    }
+    
     // MARK: - Lifecycles
     init(_ article: Article) {
         self.article = article
