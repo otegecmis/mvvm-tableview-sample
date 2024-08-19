@@ -51,7 +51,7 @@ extension HomeController {
         
         cell.titleLabel.text = article.title
         cell.authorLabel.text = article.author
-        cell.descriptionLabel.text = article.description
+        cell.dateLabel.text = convertDate(dateString: article.publishedAt)
         
         return cell
     }

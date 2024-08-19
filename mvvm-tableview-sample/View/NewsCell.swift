@@ -21,7 +21,7 @@ class NewsCell: UITableViewCell {
         return label
     }()
     
-    var descriptionLabel: UILabel = {
+    var dateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -36,7 +36,7 @@ class NewsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let stack = UIStackView(arrangedSubviews: [titleLabel, authorLabel, descriptionLabel])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, authorLabel, dateLabel])
         stack.axis = .vertical
         stack.spacing = 8
         stack.alignment = .leading
