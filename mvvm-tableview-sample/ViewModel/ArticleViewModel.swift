@@ -13,7 +13,7 @@ struct ArticleViewModel {
     }
     
     var publishedAt: String {
-        return self.article.publishedAt ?? ""
+        return self.article.publishedAt ?? "0000-00-00T00:00:00Z"
     }
     
     var author: String {
@@ -42,5 +42,9 @@ struct ArticleListViewModel {
     func articleAtIndex(_ index: Int) -> ArticleViewModel {
         let article = self.articles[index]
         return ArticleViewModel(article)
+    }
+    
+    func urlForArticle(at index: Int) -> URL? {
+        return URL(string: articles[index].url ?? "https://www.google.com")
     }
 }

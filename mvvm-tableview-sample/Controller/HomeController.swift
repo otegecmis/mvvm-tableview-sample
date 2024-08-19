@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 private let reusableIdentifier = "NewsCell"
 
@@ -62,5 +63,14 @@ extension HomeController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel == nil ? 0 : viewModel.numberOfSections
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = viewModel.urlForArticle(at: indexPath.row) {
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.modalPresentationStyle = .pageSheet
+            
+            present(safariVC, animated: true, completion: nil)
+        }
     }
 }
