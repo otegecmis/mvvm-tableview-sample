@@ -12,6 +12,7 @@ class HomeController: UITableViewController {
         super.viewDidLoad()
         configureUI()
         configureTableView()
+        configureRefreshControl()
         fetchData()
     }
     
@@ -22,6 +23,7 @@ class HomeController: UITableViewController {
                 self.viewModel = ArticleListViewModel(articles: articles)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
             }
         }
@@ -38,6 +40,16 @@ class HomeController: UITableViewController {
         tableView.register(NewsCell.self, forCellReuseIdentifier: reusableIdentifier)
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+    }
+    func configureRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        self.refreshControl = refreshControl
+    }
+    
+    // MARK: - Selectors
+    @objc func handleRefresh() {
+        fetchData()
     }
 }
 
