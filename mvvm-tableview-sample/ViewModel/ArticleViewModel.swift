@@ -8,8 +8,12 @@ struct ArticleViewModel {
         return self.article.title ?? "Title"
     }
     
-    var description: String {
-        return self.article.description ?? "Description"
+    var url: String {
+        return self.article.url ?? "https://www.google.com"
+    }
+    
+    var publishedAt: String {
+        return self.article.publishedAt ?? ""
     }
     
     var author: String {
