@@ -16,9 +16,7 @@ class HomeController: UITableViewController {
     
     // MARK: - API
     func fetchData() {
-        let url = URL(string: ENDPOINT)!
-        
-        WebService().getArticles(url: url) { articles in
+        WebService().getArticles() { articles in
             if let articles = articles {
                 self.viewModel = ArticleListViewModel(articles: articles)
                 DispatchQueue.main.async {

@@ -1,1 +1,1 @@
-let ENDPOINT = ""
+let API_KEY = ""
