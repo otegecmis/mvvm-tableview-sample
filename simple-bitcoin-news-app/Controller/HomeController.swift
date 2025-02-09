@@ -32,7 +32,7 @@ class HomeController: UITableViewController {
     // MARK: - Helpers
     func configureUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Headlines"
+        navigationItem.title = "Bitcoin News"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -84,5 +84,7 @@ extension HomeController {
             
             present(safariVC, animated: true, completion: nil)
         }
+    
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
