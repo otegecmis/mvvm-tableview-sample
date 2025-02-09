@@ -2,7 +2,7 @@ import Foundation
 
 struct WebService {
     func getArticles(completion: @escaping ([Article]?) -> ()) {
-        let urlString = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=\(API_KEY)")
+        let urlString = URL(string: "https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&language=en&apiKey=\(API_KEY)")
         
         guard let urlString = urlString else { return }
         
