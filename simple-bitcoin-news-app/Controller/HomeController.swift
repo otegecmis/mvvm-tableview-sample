@@ -63,7 +63,7 @@ extension HomeController {
         let article = viewModel.articleAtIndex(indexPath.row)
         
         cell.titleLabel.text = article.title
-        cell.authorLabel.text = article.author
+        cell.sourceNameLabel.text = article.sourceName
         cell.dateLabel.text = convertDate(dateString: article.publishedAt)
         
         return cell

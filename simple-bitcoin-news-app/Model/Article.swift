@@ -7,6 +7,10 @@ struct ArticleList: Decodable {
 struct Article: Decodable {
     let title: String?
     let url: String?
-    let author: String?
+    let source: Source?
     let publishedAt: String?
+}
+
+struct Source: Decodable {
+    let name: String?
 }

@@ -16,8 +16,8 @@ struct ArticleViewModel {
         return self.article.publishedAt ?? "0000-00-00T00:00:00Z"
     }
     
-    var author: String {
-        return self.article.author ?? "Author"
+    var sourceName: String {
+        return self.article.source?.name ?? "Source Name"
     }
     
     // MARK: - Lifecycles

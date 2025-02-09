@@ -11,7 +11,7 @@ class NewsCell: UITableViewCell {
         return label
     }()
     
-    var authorLabel: UILabel = {
+    var sourceNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.numberOfLines = 0
@@ -36,7 +36,7 @@ class NewsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let stack = UIStackView(arrangedSubviews: [titleLabel, authorLabel, dateLabel])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, sourceNameLabel, dateLabel])
         stack.axis = .vertical
         stack.spacing = 8
         stack.alignment = .leading
