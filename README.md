@@ -5,6 +5,7 @@
 ### 0. Previews
 
 <div style="float: left;">
+    <img src=".github/previews/1.png" style="width: 35%;" />
     <img src=".github/previews/2.png" style="width: 35%;" />
 </div>
 
