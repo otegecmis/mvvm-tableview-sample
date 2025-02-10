@@ -8,6 +8,8 @@ struct Article: Decodable {
     let title: String?
     let url: String?
     let source: Source?
+    let description: String?
+    let urlToImage: String?
     let publishedAt: String?
 }
 

@@ -1,22 +1,20 @@
 import UIKit
 
-extension UITableViewController {
-    func convertDate(dateString: String) -> String {
+extension String {
+    func convertToDate() -> String {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         inputFormatter.locale = Locale(identifier: "en_US_POSIX")
         inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
-        if let date = inputFormatter.date(from: dateString) {
+        if let date = inputFormatter.date(from: self) {
             let outputFormatter = DateFormatter()
             outputFormatter.dateFormat = "dd.MM.yyyy HH:mm zzz"
             outputFormatter.locale = Locale(identifier: "tr_TR")
             outputFormatter.timeZone = TimeZone.current
             
-            let formattedDate = outputFormatter.string(from: date)
-            return formattedDate
-        } else {
-            return "00.00.0000 00:00 GMT+3"
+            return outputFormatter.string(from: date)
         }
+        return "00.00.0000 00:00 GMT+3"
     }
 }

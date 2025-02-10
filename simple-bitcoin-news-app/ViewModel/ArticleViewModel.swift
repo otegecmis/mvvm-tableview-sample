@@ -20,6 +20,14 @@ struct ArticleViewModel {
         return self.article.source?.name ?? "Source Name"
     }
     
+    var description: String {
+        return self.article.description ?? "Description"
+    }
+    
+    var urlToImage: String? {
+        return self.article.urlToImage
+    }
+    
     // MARK: - Lifecycles
     init(_ article: Article) {
         self.article = article

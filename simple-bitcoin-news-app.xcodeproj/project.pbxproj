@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BE52FDE2D59D35C00CAF492 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE52FDD2D59D35700CAF492 /* DetailController.swift */; };
 		8BE811982C6D062E0028BE48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE811972C6D062E0028BE48 /* AppDelegate.swift */; };
 		8BE8119A2C6D062E0028BE48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE811992C6D062E0028BE48 /* SceneDelegate.swift */; };
 		8BE811A12C6D062F0028BE48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE811A02C6D062F0028BE48 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BE52FDD2D59D35700CAF492 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		8BE811942C6D062E0028BE48 /* simple-bitcoin-news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-bitcoin-news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE811972C6D062E0028BE48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE811992C6D062E0028BE48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		8BE811AE2C6D07670028BE48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8BE52FDD2D59D35700CAF492 /* DetailController.swift */,
 				8BE811B02C6D09C60028BE48 /* HomeController.swift */,
 			);
 			path = Controller;
@@ -216,6 +219,7 @@
 				8BE811B72C6E0ACB0028BE48 /* ArticleViewModel.swift in Sources */,
 				8BE811BD2C6E23180028BE48 /* NewsCell.swift in Sources */,
 				8BE811B12C6D09C60028BE48 /* HomeController.swift in Sources */,
+				8BE52FDE2D59D35C00CAF492 /* DetailController.swift in Sources */,
 				8BE81E702C70AB7D00DFE9B9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

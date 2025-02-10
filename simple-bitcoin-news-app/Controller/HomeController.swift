@@ -64,7 +64,7 @@ extension HomeController {
         
         cell.titleLabel.text = article.title
         cell.sourceNameLabel.text = article.sourceName
-        cell.dateLabel.text = convertDate(dateString: article.publishedAt)
+        cell.dateLabel.text = article.publishedAt.convertToDate()
         
         return cell
     }
@@ -78,13 +78,10 @@ extension HomeController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = viewModel.urlForArticle(at: indexPath.row) {
-            let safariVC = SFSafariViewController(url: url)
-            safariVC.modalPresentationStyle = .pageSheet
-            
-            present(safariVC, animated: true, completion: nil)
-        }
-    
+        let detailController = DetailController()
+        
+        detailController.viewModel = viewModel.articleAtIndex(indexPath.row)
+        navigationController?.pushViewController(detailController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
