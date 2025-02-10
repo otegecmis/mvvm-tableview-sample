@@ -41,8 +41,10 @@ class HomeController: UITableViewController {
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
+    
     func configureRefreshControl() {
         let refreshControl = UIRefreshControl()
+        
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         self.refreshControl = refreshControl
     }

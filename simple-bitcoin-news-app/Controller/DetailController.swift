@@ -138,6 +138,7 @@ class DetailController: UIViewController {
     @objc private func openWebsite() {
         guard let article = viewModel, let url = URL(string: article.url) else { return }
         let safariVC = SFSafariViewController(url: url)
+        
         present(safariVC, animated: true)
     }
 }
