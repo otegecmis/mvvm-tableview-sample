@@ -4,7 +4,7 @@ class NewsCell: UITableViewCell {
     // MARK: - Properties
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         
@@ -27,7 +27,7 @@ class NewsCell: UITableViewCell {
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         
         return label
     }()
