@@ -58,7 +58,7 @@ class HomeController: UIViewController {
     func configureUI() {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Bitcoin News"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         view.addSubview(collectionView)
         collectionView.refreshControl = refreshControl
