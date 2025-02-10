@@ -2,6 +2,12 @@
 
 - A simple iOS app developed with **Swift** and **UIKit (Programmatic)** following the **MVVM** pattern to fetch Bitcoin news from different sources.
 
+### 0. Previews
+
+<div style="float: left;">
+    <img src=".github/previews/2.png" style="width: 35%;" />
+</div>
+
 ### 1. Installation
 
 1. **Clone the repository**
