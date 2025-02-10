@@ -1,58 +1,96 @@
 import UIKit
 
-class NewsCell: UITableViewCell {
+class NewsCell: UICollectionViewCell {
     // MARK: - Properties
-    var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        
-        return label
+    private var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.backgroundColor = .darkGray
+        iv.translatesAutoresizingMaskIntoConstraints = false
+
+        return iv
     }()
     
-    var sourceNameLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textColor = .darkGray
-        
+        label.numberOfLines = 3
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
     
-    var dateLabel: UILabel = {
+    private var sourceNameLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        
+
         return label
     }()
     
     // MARK: - Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        let stack = UIStackView(arrangedSubviews: [titleLabel, sourceNameLabel, dateLabel])
-        stack.axis = .vertical
-        stack.spacing = 8
-        stack.alignment = .leading
-        stack.translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .black
+        layer.cornerRadius = 8
+        clipsToBounds = true
         
-        contentView.addSubview(stack)
+        contentView.addSubview(imageView)
+        contentView.addSubview(sourceNameLabel)
+        contentView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 17),
-            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -17),
-            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.6),
+            
+            sourceNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            sourceNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            sourceNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            
+            titleLabel.topAnchor.constraint(equalTo: sourceNameLabel.bottomAnchor, constant: 4),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Helpers
+    func configure(with article: ArticleViewModel) {
+        titleLabel.text = article.title
+        sourceNameLabel.text = article.sourceName
+        
+        if let imageUrlString = article.urlToImage,
+           let imageUrl = URL(string: imageUrlString) {
+            URLSession.shared.dataTask(with: imageUrl) { [weak self] data, _, error in
+                if let error = error {
+                    print("Error loading image: \(error)")
+                    return
+                }
+                
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.imageView.image = image
+                    }
+                }
+            }.resume()
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        titleLabel.text = nil
+        sourceNameLabel.text = nil
     }
 }

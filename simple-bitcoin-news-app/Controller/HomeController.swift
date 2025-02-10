@@ -3,16 +3,41 @@ import SafariServices
 
 private let reusableIdentifier = "NewsCell"
 
-class HomeController: UITableViewController {
+class HomeController: UIViewController {
     // MARK: - Properties
     private var viewModel: ArticleListViewModel!
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let padding: CGFloat = 18
+        let width = (view.frame.width - padding * 3) / 2
+        
+        layout.itemSize = CGSize(width: width, height: width * 1.5)
+        layout.minimumLineSpacing = padding
+        layout.minimumInteritemSpacing = padding
+        layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .systemBackground
+        cv.register(NewsCell.self, forCellWithReuseIdentifier: reusableIdentifier)
+        cv.delegate = self
+        cv.dataSource = self
+        cv.translatesAutoresizingMaskIntoConstraints = false
+
+        return cv
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+
+        return refreshControl
+    }()
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureTableView()
-        configureRefreshControl()
         fetchData()
     }
     
@@ -22,8 +47,8 @@ class HomeController: UITableViewController {
             if let articles = articles {
                 self.viewModel = ArticleListViewModel(articles: articles)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
+                    self.collectionView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             }
         }
@@ -34,19 +59,16 @@ class HomeController: UITableViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Bitcoin News"
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    func configureTableView() {
-        tableView.register(NewsCell.self, forCellReuseIdentifier: reusableIdentifier)
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableView.automaticDimension
-    }
-    
-    func configureRefreshControl() {
-        let refreshControl = UIRefreshControl()
         
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        self.refreshControl = refreshControl
+        view.addSubview(collectionView)
+        collectionView.refreshControl = refreshControl
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     // MARK: - Selectors
@@ -55,35 +77,31 @@ class HomeController: UITableViewController {
     }
 }
 
-// MARK: - Extensions
-extension HomeController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableIdentifier, for: indexPath) as? NewsCell else {
+// MARK: - UICollectionViewDataSource
+extension HomeController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.numberOfRowsInSection(section) ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as? NewsCell else {
             fatalError("NOT FOUND: NewsCell")
         }
         
-        let article = viewModel.articleAtIndex(indexPath.row)
-        
-        cell.titleLabel.text = article.title
-        cell.sourceNameLabel.text = article.sourceName
-        cell.dateLabel.text = article.publishedAt.convertToDate()
+        if let article = viewModel?.articleAtIndex(indexPath.row) {
+            cell.configure(with: article)
+        }
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel == nil ? 0 : viewModel.numberOfSections
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+// MARK: - UICollectionViewDelegate
+extension HomeController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailController = DetailController()
-        
+
         detailController.viewModel = viewModel.articleAtIndex(indexPath.row)
         navigationController?.pushViewController(detailController, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
