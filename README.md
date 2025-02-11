@@ -1,6 +1,6 @@
-## Simple Bitcoin News App
+## Simple Business News App
 
-- A simple iOS app developed with **Swift** and **UIKit (Programmatic)** following the **MVVM** pattern to fetch Bitcoin news from different sources.
+- A simple iOS app developed with **Swift** and **UIKit (Programmatic)** following the **MVVM** pattern to fetch business news from different sources.
 
 ### 0. Previews
 
@@ -14,19 +14,19 @@
 1. **Clone the repository**
 
 ```sh
-git clone https://github.com/otegecmis/simple-bitcoin-news-app.git
+git clone https://github.com/otegecmis/simple-business-news-app.git
 ```
 
 2. **Navigate to the project directory**
 
 ```sh
-cd simple-bitcoin-news-app
+cd simple-business-news-app
 ```
 
 3. **Open the Xcode project**
 
 ```sh
-open simple-bitcoin-news-app.xcodeproj
+open simple-business-news-app.xcodeproj
 ```
 
 4. **Configure the API KEY**
