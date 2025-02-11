@@ -50,11 +50,11 @@ class NewsCell: UICollectionViewCell {
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.6),
             
             sourceNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            sourceNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            sourceNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             sourceNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
             titleLabel.topAnchor.constraint(equalTo: sourceNameLabel.bottomAnchor, constant: 4),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
