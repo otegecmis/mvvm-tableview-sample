@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		8BE52FDD2D59D35700CAF492 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
-		8BE811942C6D062E0028BE48 /* simple-bitcoin-news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-bitcoin-news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BE811942C6D062E0028BE48 /* simple-business-news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-business-news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE811972C6D062E0028BE48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE811992C6D062E0028BE48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BE811A02C6D062F0028BE48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		8BE8118B2C6D062E0028BE48 = {
 			isa = PBXGroup;
 			children = (
-				8BE811962C6D062E0028BE48 /* simple-bitcoin-news-app */,
+				8BE811962C6D062E0028BE48 /* simple-business-news-app */,
 				8BE811952C6D062E0028BE48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,12 +60,12 @@
 		8BE811952C6D062E0028BE48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BE811942C6D062E0028BE48 /* simple-bitcoin-news-app.app */,
+				8BE811942C6D062E0028BE48 /* simple-business-news-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8BE811962C6D062E0028BE48 /* simple-bitcoin-news-app */ = {
+		8BE811962C6D062E0028BE48 /* simple-business-news-app */ = {
 			isa = PBXGroup;
 			children = (
 				8BE811AB2C6D075A0028BE48 /* Model */,
@@ -77,7 +77,7 @@
 				8BE811AF2C6D07760028BE48 /* Support */,
 				8BE811A52C6D062F0028BE48 /* Info.plist */,
 			);
-			path = "simple-bitcoin-news-app";
+			path = "simple-business-news-app";
 			sourceTree = "<group>";
 		};
 		8BE811AB2C6D075A0028BE48 /* Model */ = {
@@ -144,9 +144,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BE811932C6D062E0028BE48 /* simple-bitcoin-news-app */ = {
+		8BE811932C6D062E0028BE48 /* simple-business-news-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BE811A82C6D062F0028BE48 /* Build configuration list for PBXNativeTarget "simple-bitcoin-news-app" */;
+			buildConfigurationList = 8BE811A82C6D062F0028BE48 /* Build configuration list for PBXNativeTarget "simple-business-news-app" */;
 			buildPhases = (
 				8BE811902C6D062E0028BE48 /* Sources */,
 				8BE811912C6D062E0028BE48 /* Frameworks */,
@@ -156,9 +156,9 @@
 			);
 			dependencies = (
 			);
-			name = "simple-bitcoin-news-app";
+			name = "simple-business-news-app";
 			productName = "mvvm-tableview-sample";
-			productReference = 8BE811942C6D062E0028BE48 /* simple-bitcoin-news-app.app */;
+			productReference = 8BE811942C6D062E0028BE48 /* simple-business-news-app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8BE8118F2C6D062E0028BE48 /* Build configuration list for PBXProject "simple-bitcoin-news-app" */;
+			buildConfigurationList = 8BE8118F2C6D062E0028BE48 /* Build configuration list for PBXProject "simple-business-news-app" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BE811932C6D062E0028BE48 /* simple-bitcoin-news-app */,
+				8BE811932C6D062E0028BE48 /* simple-business-news-app */,
 			);
 		};
 /* End PBXProject section */
@@ -365,8 +365,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "simple-bitcoin-news-app/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Bitcoin News";
+				INFOPLIST_FILE = "simple-business-news-app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Business News";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -377,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.otegecmis.simple-bitcoin-news-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.otegecmis.simple-business-news-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -397,8 +397,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "simple-bitcoin-news-app/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Bitcoin News";
+				INFOPLIST_FILE = "simple-business-news-app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Business News";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -409,7 +409,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.otegecmis.simple-bitcoin-news-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.otegecmis.simple-business-news-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -424,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8BE8118F2C6D062E0028BE48 /* Build configuration list for PBXProject "simple-bitcoin-news-app" */ = {
+		8BE8118F2C6D062E0028BE48 /* Build configuration list for PBXProject "simple-business-news-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BE811A62C6D062F0028BE48 /* Debug */,
@@ -433,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BE811A82C6D062F0028BE48 /* Build configuration list for PBXNativeTarget "simple-bitcoin-news-app" */ = {
+		8BE811A82C6D062F0028BE48 /* Build configuration list for PBXNativeTarget "simple-business-news-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BE811A92C6D062F0028BE48 /* Debug */,

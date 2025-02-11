@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BE811932C6D062E0028BE48"
-               BuildableName = "simple-bitcoin-news-app.app"
-               BlueprintName = "simple-bitcoin-news-app"
-               ReferencedContainer = "container:simple-bitcoin-news-app.xcodeproj">
+               BuildableName = "simple-business-news-app.app"
+               BlueprintName = "simple-business-news-app"
+               ReferencedContainer = "container:simple-business-news-app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BE811932C6D062E0028BE48"
-            BuildableName = "simple-bitcoin-news-app.app"
-            BlueprintName = "simple-bitcoin-news-app"
-            ReferencedContainer = "container:simple-bitcoin-news-app.xcodeproj">
+            BuildableName = "simple-business-news-app.app"
+            BlueprintName = "simple-business-news-app"
+            ReferencedContainer = "container:simple-business-news-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BE811932C6D062E0028BE48"
-            BuildableName = "simple-bitcoin-news-app.app"
-            BlueprintName = "simple-bitcoin-news-app"
-            ReferencedContainer = "container:simple-bitcoin-news-app.xcodeproj">
+            BuildableName = "simple-business-news-app.app"
+            BlueprintName = "simple-business-news-app"
+            ReferencedContainer = "container:simple-business-news-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

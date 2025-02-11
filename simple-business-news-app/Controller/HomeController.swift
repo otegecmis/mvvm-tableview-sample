@@ -57,7 +57,7 @@ class HomeController: UIViewController {
     // MARK: - Helpers
     func configureUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Bitcoin News"
+        navigationItem.title = "Business News"
         navigationController?.navigationBar.prefersLargeTitles = false
         
         view.addSubview(collectionView)
