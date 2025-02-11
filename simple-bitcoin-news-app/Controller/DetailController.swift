@@ -31,7 +31,7 @@ class DetailController: UIViewController {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .systemFont(ofSize: 10, weight: .medium)
         
         return label
     }()
@@ -40,7 +40,7 @@ class DetailController: UIViewController {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 10, weight: .regular)
         
         return label
     }()
@@ -78,7 +78,7 @@ class DetailController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         titleLabel.text = viewModel?.title
-        sourceNameLabel.text = "Source: \(viewModel?.sourceName ?? "Source Name")"
+        sourceNameLabel.text = "SOURCE: \(viewModel?.sourceName ?? "Source Name")"
         dateLabel.text = viewModel?.publishedAt.convertToDate()
         descriptionLabel.text = viewModel?.description
         readMoreButton.addTarget(self, action: #selector(openWebsite), for: .touchUpInside)
@@ -111,19 +111,19 @@ class DetailController: UIViewController {
             newsImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             newsImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
             
-            titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 15),
+            sourceNameLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 8),
+            sourceNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            
+            dateLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 8),
+            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            
+            sourceNameLabel.trailingAnchor.constraint(lessThanOrEqualTo: dateLabel.leadingAnchor, constant: -8),
+            
+            titleLabel.topAnchor.constraint(equalTo: sourceNameLabel.bottomAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             
-            sourceNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            sourceNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            sourceNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            
-            dateLabel.topAnchor.constraint(equalTo: sourceNameLabel.bottomAnchor, constant: 4),
-            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 12),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             
